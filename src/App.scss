@@ -1,0 +1,88 @@
+@function col($col, $total) {
+  @return ($col * 100%) / $total;
+}
+
+.bgRed {
+  background: #ef3340;
+  height: 608px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  z-index: -1;
+}
+
+.appContainer {
+  position: relative;
+}
+
+.container {
+  margin: auto;
+  max-width: 296px;
+  display: flex;
+  background: white;
+}
+@media only screen and (min-width: 480px) {
+  .container {
+    width: 90%;
+    max-width: 540px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 592px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .container {
+    max-width: 946px;
+  }
+}
+@media only screen and (min-width: 1360px) {
+  .container {
+    max-width: 1184px;
+  }
+}
+
+.leftSide {
+  background: #ef3340;
+  height: 608px;
+  border-radius: 0 0 40px 0;
+  width: col(17, 37);
+  transition: all 0.2s ease-in;
+  transform: skew(-3deg);
+  position: relative;
+  left: -16px;
+}
+
+.rightSide {
+  width: col(20, 37);
+  background: white;
+}
+
+.moved {
+  width: col(8, 37);
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    background: transparent;
+  }
+  .leftSide {
+    width: col(37, 37);
+    transform: skew(0);
+    left: 0;
+    background: transparent;
+  }
+
+  .rightSide {
+    width: col(37, 37);
+  }
+  .bgRed {
+    width: 100%;
+    border-radius: 0 0 40px 0;
+    transform: skew(0, 3deg);
+    top: -14px;
+  }
+}
